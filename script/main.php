@@ -1,5 +1,4 @@
 <?php
-
 //LINK OF JENKINS API
 $link = 'http://localhost:8080/api/json?tree=jobs[displayName,lastBuild[result]]';
 
@@ -9,29 +8,31 @@ try {
 //CONVERT STRING TO JSON
     $jobs = json_decode($jobsString);
 //NEW CONNECTION TO DATABASE
-    $db = new SQLite3('Jenkins');
-//HEAD OF INSERT QUERIE
-    $insert = 'INSERT INTO jobs (name, status) VALUES ';
-//LOOP THAT FULLFILLS THE INSERT QUERY
-    foreach ($jobs->jobs as $key => $value) {
+	$db = new PDO('sqlite:Jenkins');
+//QUERIE
+    $query = 'INSERT INTO jobs (name, status) VALUES (:name, :status)';
+//INSERT JOBS IN DATABASE 
+    if (sizeof($jobs->jobs) > 0) {
+		
+        foreach ($jobs->jobs as $key => $value) {
 
-        $insert .="("
-                . "'" . $value->displayName . "',"
-                . "'" . $value->lastBuild->result . "'"
-                . "),";
+            $sql = $db->prepare($query);
+            $sql->bindParam(':name', $value->displayName, PDO::PARAM_STR);
+            $sql->bindParam(':status', $value->lastBuild->result, PDO::PARAM_STR);
+			$sql->execute();
+			
+			$errors = $sql->errorInfo();
+//IF AN ERROR OCCUR DISPLAY THE ERROR
+			if($errors[0]!=="00000"){
+				echo "For Job ".$value->displayName ." ERROR:".$errors[2];
+			}		
+        }
+		
+		echo "DONE!!!!";
+		
+     } else {
+        echo "There isn't any job to insert";
     }
-//DELETE THE LAST COMMA IN THE QUERIE
-    $insert = rtrim($insert, ",");
-//EXECUTE THE QUERY
-    $saved =$db->exec($insert);
-    
-    if ($saved) {
-        echo "Jobs successfully inserted in database";
-    }else{
-        echo "An error occur, and  weren't inserted any job";
-    }
-//CLOSE CONNECTION
-    $db->close();
 } catch (Exception $e) {
     echo "Error:" . $e->getMessage();
 }
