@@ -34,4 +34,4 @@ Composer is a required dependency. If you don't have it installed do it so by ru
 Finally, on the web folder run ``composer install`` to install the dependencies
 
 To access the web app open the following URL:
-http://localhost/Web/public 
+[http://localhost/Web/public](http://localhost/Web/public) 
