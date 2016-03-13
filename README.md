@@ -20,10 +20,10 @@ Make reasonable assumptions, state your assumptions, and proceed. Once you have 
 
 Good luck!
 
-##instructions
+##Instructions
 
-clone Github project through command:
-git clone https://github.com/jcrjaci/Seedstars-PHP-Challenge-.git
+Start by cloning this Github project through the following command:
+''''git clone https://github.com/jcrjaci/Seedstars-PHP-Challenge-.git''''
 
 To execute The script, go to script folder and execute the follow comand:
 php main.php
