@@ -23,7 +23,7 @@ Good luck!
 ##Instructions
 
 Start by cloning this Github project through the following command:
-''git clone https://github.com/jcrjaci/Seedstars-PHP-Challenge-.git''
+``git clone https://github.com/jcrjaci/Seedstars-PHP-Challenge-.git``
 
 To execute The script, go to script folder and execute the follow comand:
 php main.php
