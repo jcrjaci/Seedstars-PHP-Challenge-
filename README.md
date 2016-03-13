@@ -23,16 +23,15 @@ Good luck!
 ##Instructions
 
 Start by cloning this Github project through the following command:
-``git clone https://github.com/jcrjaci/Seedstars-PHP-Challenge-.git``
+````git clone https://github.com/jcrjaci/Seedstars-PHP-Challenge-.git````
 
-To execute The script, go to script folder and execute the follow comand:
-php main.php
+To execute The script, go to script folder and execute the following comand: php main.php
+``php main.php``
 
-Its necessary to install composer, in case that you dont have insall it, you can do it through:
-curl -s https://getcomposer.org/installer | php
+Composer is a required dependency. If you don't have it installed do it so by running:
+``curl -s https://getcomposer.org/installer | php``
 
-Over the Web folder run:
-composer install
+Finally, on the web folder run ``composer install`` to install the dependencies
 
-To acess the web application open the follow URL
+To access the web app open the following URL:
 http://localhost/Web/public 
