@@ -19,3 +19,20 @@ Since you’re doing an application in make sure the app does not have major sec
 Make reasonable assumptions, state your assumptions, and proceed. Once you have completed the challenge let us know and share your thoughts on the problems/solutions.
 
 Good luck!
+
+##instructions
+
+clone Github project through command:
+git clone https://github.com/jcrjaci/Seedstars-PHP-Challenge-.git
+
+To execute The script, go to script folder and execute the follow comand:
+php main.php
+
+Its necessary to install composer, in case that you dont have insall it, you can do it through:
+curl -s https://getcomposer.org/installer | php
+
+Over the Web folder run:
+composer install
+
+To acess the web application open the follow URL
+http://localhost/Web/public 
